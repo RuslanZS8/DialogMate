@@ -41,12 +41,6 @@ def generate_roast(user_input):
     "Avoid long explanations; if something needs more detail, split it into short follow-up "
     "messages instead of one long block."
 ),
-        safety_settings=[
-            types.SafetySetting(
-                category="HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                threshold="BLOCK_LOW_AND_ABOVE",
-            )
-        ],
         response_mime_type="text/plain",
     )
 
