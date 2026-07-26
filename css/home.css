@@ -13,7 +13,7 @@ body {
     margin: 0;
     overflow-x: hidden;
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100svh;
     font-weight: 100;
 }
 
@@ -92,7 +92,7 @@ header {
     align-items: center;
     padding: 16px;
     min-height: calc(100vh - 80px);
-    min-height: calc(100dvh - 80px);
+    min-height: calc(100svh - 80px);
 }
 
 #chat-container {
@@ -101,7 +101,7 @@ header {
     background-color: hsla(231, 68%, 57%, 0.966);
     border: 1px solid #ccc;
     border-radius: 30px;
-    height: min(520px, calc(100dvh - 220px));
+    height: min(520px, calc(100svh - 220px));
     min-height: 280px;
     overflow: hidden;
     padding: 15px;
@@ -247,7 +247,7 @@ header {
 
     .page {
         padding: 12px;
-        min-height: calc(100dvh - 72px);
+        min-height: calc(100svh - 72px);
     }
 
     .decor {
@@ -256,14 +256,13 @@ header {
 
     #chat-container {
         width: 100%;
-        flex: 1 1 auto;
-        height: auto;
+        flex: 0 0 auto;
         min-height: 0;
         max-height: none;
         margin: 12px 0;
         border-radius: 18px;
-        /* fill most of the phone screen */
-        height: calc(100dvh - 180px);
+        /* svh stays stable when the mobile keyboard opens */
+        height: calc(100svh - 180px);
     }
 
     .input-area {
@@ -298,7 +297,7 @@ header {
     }
 
     #chat-container {
-        height: calc(100dvh - 170px);
+        height: calc(100svh - 170px);
         padding: 12px;
     }
 }
