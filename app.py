@@ -75,12 +75,17 @@ def generate_roast(user_input):
         return "My roast engine crashed... you're so unremarkable you broke AI. 😴"
 
 
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({"ok": True})
+
+
 @app.route('/roast', methods=['POST'])
 def get_roast():
     """
     POST endpoint: { "user_prompt": "..." }
     """
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
     user_prompt = data.get("user_prompt")
 
     if not user_prompt:
