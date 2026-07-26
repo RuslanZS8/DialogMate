@@ -1,6 +1,17 @@
 const userInput = document.getElementById('user-input');
 const outputDiv = document.getElementById('output');
-const backendUrl = 'http://127.0.0.1:5000/roast'; // Flask default
+
+// Local PC uses localhost. Phone / GitHub Pages need a public HTTPS backend.
+const isLocalHost =
+    location.hostname === 'localhost' ||
+    location.hostname === '127.0.0.1';
+
+// After you deploy Flask (e.g. Render), paste that URL here:
+const PRODUCTION_API = 'https://ruslanzs8.github.io/DialogMate/';
+
+const backendUrl = isLocalHost
+    ? 'http://127.0.0.1:5000/roast'
+    : PRODUCTION_API;
 
 async function sendPrompt() {
     const prompt = userInput.value.trim();
