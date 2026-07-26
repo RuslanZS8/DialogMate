@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cal+Sans&display=swap" rel="stylesheet">
+    <title>Contact US</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="home.html"><button class="home">Home</button></a></li>
+                <li><a href="details.html"><button class="details">Details</button></a></li>
+                <li><a href="contact.html"><button class="cta-btn">Contact Us</button></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contact">
+            <div class="contact_inner">
+
+                <h2>Fill the form to <span class="accent_color">Contact Us</span></h2>
+
+                <form action="" method="" class="custom-field">
+
+                    <label for="name">
+                        Name:
+                        <input type="text" placeholder="Your Name" id="name" minlength="1" maxlength="35" required>
+                    </label>
+
+                    <label for="surname">
+                        Surname:
+                        <input type="text" placeholder="Your Surname" id="surname" minlength="1" maxlength="35"
+                            required>
+                    </label>
+
+                    <label for="email">
+                        E-mail:
+                        <input type="email" placeholder="E-mail" id="email" minlength="5" maxlength="35" required>
+                    </label>
+
+                    <label for="comment">Comment:</label>
+                    <textarea id="comment" placeholder="Your comment" rows="5" cols="33" minlength="1" maxlength="300"
+                        required></textarea>
+
+                    <button type="submit" class="accent_button">Send</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div class="images" aria-hidden="true">
+        <img class="hi" src="image/hi.png" alt="">
+        <img class="astro" src="image/astronaut.png" alt="">
+        <img class="meto" src="image/meteorite.png" alt="">
+    </div>
+    <a href="index.html"><button type="button" class="return-to-the-main-page">Main page</button></a>
+
+
+    <script src="js/contact.js"></script>
+    <script src="js/chatBot.js"></script>
+</body>
+
+</html>

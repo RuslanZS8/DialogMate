@@ -1,0 +1,246 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: rgb(7, 31, 49);
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-weight: bold;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px clamp(12px, 3vw, 30px) 0;
+    position: relative;
+    z-index: 5;
+}
+
+label {
+    color: white;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    display: block;
+    margin-top: 8px;
+}
+
+h2 {
+    color: white;
+    font-size: clamp(1.35rem, 4vw, 1.875rem);
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.home,
+.details,
+.cta-btn {
+    min-height: 44px;
+    padding: 8px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid white;
+    color: white;
+    background-color: rgb(30, 17, 103);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover,
+.details:hover {
+    background-color: rgb(40, 23, 139);
+}
+
+.home:hover {
+    background-color: rgb(48, 28, 160);
+}
+
+.nav_links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav_links li {
+    display: inline-block;
+}
+
+.nav_links li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: rgb(0, 238, 255);
+    border-bottom: 2px solid rgb(0, 238, 255);
+}
+
+.star {
+    position: fixed;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    padding: 0 16px 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact_inner {
+    font-size: 20px;
+    width: min(500px, 100%);
+    background-color: hsla(231, 68%, 57%, 0.966);
+    box-shadow: 14px 14px 32px 0 rgb(0 0 0 / 14%);
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+.custom-field input,
+textarea {
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    font-size: 16px; /* prevents iOS zoom */
+    margin: 6px 0 10px;
+    padding: 12px;
+    background: #f2f2f2;
+    border-radius: 10px;
+    border: none;
+    resize: vertical;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.accent_button {
+    border: none;
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    min-height: 48px;
+    font-size: 18px;
+    margin: 8px 0 0;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.custom-field button:hover {
+    background-color: rgb(223, 223, 223);
+}
+
+.custom-field button:active {
+    background-color: rgb(205, 205, 205);
+}
+
+.images {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hi {
+    position: absolute;
+    right: 6%;
+    top: 120px;
+    width: min(280px, 22vw);
+}
+
+.astro {
+    position: absolute;
+    left: 8%;
+    top: 200px;
+    width: min(180px, 16vw);
+}
+
+.meto {
+    position: absolute;
+    left: 6%;
+    top: 400px;
+    width: min(100px, 10vw);
+}
+
+.return-to-the-main-page {
+    min-height: 48px;
+    padding: 12px 22px;
+    font-size: 17px;
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: rgb(40, 23, 139);
+    color: white;
+    display: block;
+    margin: 0 auto 28px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.return-to-the-main-page:hover {
+    background-color: rgb(53, 33, 168);
+}
+
+@media (max-width: 1000px) {
+    .hi,
+    .astro,
+    .meto {
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        justify-content: center;
+        padding: 12px;
+    }
+
+    .nav_links {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .home,
+    .details,
+    .cta-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+        min-height: 40px;
+    }
+
+    .images {
+        display: none;
+    }
+
+    .contact {
+        padding: 0 12px 16px;
+    }
+
+    .contact_inner {
+        margin-top: 20px;
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .return-to-the-main-page {
+        width: calc(100% - 24px);
+        max-width: 280px;
+    }
+}

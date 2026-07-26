@@ -1,0 +1,298 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: rgb(7, 31, 49);
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-weight: 100;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px clamp(12px, 3vw, 30px) 0;
+    position: relative;
+    z-index: 5;
+}
+
+.home,
+.details,
+.log-in,
+.cta-btn {
+    min-height: 44px;
+    padding: 8px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid white;
+    color: white;
+    background-color: rgb(30, 17, 103);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover,
+.details:hover {
+    background-color: rgb(40, 23, 139);
+}
+
+.home:hover,
+.log-in:hover {
+    background-color: rgb(48, 28, 160);
+}
+
+.nav_links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav_links li {
+    display: inline-block;
+}
+
+.nav_links li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: rgb(0, 238, 255);
+    border-bottom: 2px solid rgb(0, 238, 255);
+}
+
+.star {
+    position: fixed;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    min-height: calc(100vh - 80px);
+    min-height: calc(100dvh - 80px);
+}
+
+#chat-container {
+    width: min(800px, 100%);
+    margin: 24px auto;
+    background-color: hsla(231, 68%, 57%, 0.966);
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    height: min(520px, calc(100dvh - 220px));
+    min-height: 280px;
+    overflow: hidden;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+#output {
+    margin-bottom: 10px;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-wrap: anywhere;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    font-family: "Anton", sans-serif;
+    color: white;
+}
+
+.input-area {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    flex-shrink: 0;
+}
+
+#user-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 48px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px; /* keeps iOS from zooming on focus */
+}
+
+.input-area button {
+    min-height: 48px;
+    padding: 10px 20px;
+    background-color: rgb(40, 23, 139);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.input-area button:hover {
+    background-color: rgb(55, 32, 180);
+}
+
+.error {
+    color: #ffb4b4;
+    font-size: 16px;
+}
+
+.decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.robo-image {
+    right: 20px;
+    top: 180px;
+}
+
+.robo-image img {
+    width: min(300px, 22vw);
+    display: block;
+}
+
+.solar-system {
+    left: 35px;
+    top: 100px;
+}
+
+.solar-system img {
+    width: min(170px, 14vw);
+    display: block;
+}
+
+.return-link {
+    margin: 8px 0 28px auto;
+    align-self: flex-end;
+    z-index: 2;
+}
+
+.return-to-the-main-page {
+    min-height: 48px;
+    padding: 12px 22px;
+    font-size: 17px;
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: rgb(40, 23, 139);
+    color: white;
+    cursor: pointer;
+}
+
+.return-to-the-main-page:hover {
+    background-color: rgb(53, 33, 168);
+}
+
+@media (max-width: 1000px) {
+    .decor {
+        opacity: 0.3;
+    }
+}
+
+/* Phones + small tablets */
+@media (max-width: 900px) {
+    header {
+        justify-content: center;
+        padding: 12px;
+    }
+
+    .nav_links {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .home,
+    .details,
+    .log-in,
+    .cta-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+        min-height: 40px;
+    }
+
+    .page {
+        padding: 12px;
+        min-height: calc(100dvh - 72px);
+    }
+
+    .decor {
+        display: none;
+    }
+
+    #chat-container {
+        width: 100%;
+        flex: 1 1 auto;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        margin: 12px 0;
+        border-radius: 18px;
+        /* fill most of the phone screen */
+        height: calc(100dvh - 180px);
+    }
+
+    .input-area {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .input-area button {
+        flex: 0 0 auto;
+        padding: 10px 16px;
+    }
+
+    .return-link {
+        align-self: center;
+        margin: 4px 0 16px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .return-to-the-main-page {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-area {
+        flex-direction: column;
+    }
+
+    .input-area button {
+        width: 100%;
+    }
+
+    #chat-container {
+        height: calc(100dvh - 170px);
+        padding: 12px;
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Cal+Sans&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="home.html"><button class="home">Home</button></a></li>
+                <li><a href="details.html"><button class="details">Details</button></a></li>
+                <li><a href="contact.html"><button class="cta-btn">Contact Us</button></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page">
+        <div class="decor solar-system">
+            <img src="image/earth.png" alt="">
+        </div>
+
+        <div id="chat-container">
+            <div id="output"></div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Hey, What's Up....." autocomplete="off">
+                <button type="button" onclick="sendPrompt()">Send</button>
+            </div>
+        </div>
+
+        <div class="decor robo-image">
+            <img src="image/present.png" alt="">
+        </div>
+
+        <a href="index.html" class="return-link">
+            <button type="button" class="return-to-the-main-page">Main page</button>
+        </a>
+    </main>
+
+    <script src="js/home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(7, 31, 49);
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    position: relative;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px clamp(12px, 3vw, 30px) 0;
+    position: relative;
+    z-index: 5;
+}
+
+.home,
+.details,
+.log-in,
+.cta-btn {
+    min-height: 44px;
+    padding: 8px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid white;
+    color: white;
+    background-color: rgb(30, 17, 103);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cta-btn:hover,
+.details:hover {
+    background-color: rgb(40, 23, 139);
+}
+
+.home:hover,
+.log-in:hover {
+    background-color: rgb(48, 28, 160);
+}
+
+.nav_links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav_links li {
+    display: inline-block;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: rgb(0, 238, 255);
+    border-bottom: 2px solid rgb(0, 238, 255);
+}
+
+.scene {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero {
+    position: relative;
+    z-index: 2;
+    min-height: calc(100vh - 80px);
+    min-height: calc(100dvh - 80px);
+}
+
+/* Desktop / large screens: keep the original space-scene look */
+.intro-container h1 {
+    position: absolute;
+    top: 230px;
+    left: 40px;
+    color: white;
+    font-size: clamp(1.8rem, 5vw, 3.1rem);
+    margin: 0;
+    line-height: 1.15;
+}
+
+.intro-container .cta-link {
+    display: inline-block;
+    margin-top: 320px;
+    margin-left: 40px;
+}
+
+.intro-container button {
+    background-color: rgb(30, 17, 103);
+    color: white;
+    min-height: 52px;
+    padding: 16px 28px;
+    border-radius: 20px;
+    font-size: clamp(1rem, 2.5vw, 1.55rem);
+    border: 1px solid white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.intro-container button:hover {
+    background-color: rgb(40, 23, 139);
+}
+
+.intro-container button:active {
+    background-color: rgb(48, 28, 160);
+}
+
+.intro-container img {
+    width: 20px;
+    vertical-align: middle;
+}
+
+.planetary img {
+    position: absolute;
+    left: 460px;
+    top: 90px;
+    width: min(260px, 22vw);
+}
+
+.moon-img img {
+    width: min(400px, 32vw);
+    position: absolute;
+    right: 22%;
+    top: 480px;
+}
+
+.kgz img {
+    position: absolute;
+    right: 24%;
+    top: 480px;
+    width: min(100px, 8vw);
+}
+
+.satelite img {
+    position: absolute;
+    top: 120px;
+    right: 12%;
+    width: min(110px, 10vw);
+}
+
+.main-image img {
+    position: absolute;
+    top: 221px;
+    right: 26%;
+    width: min(350px, 28vw);
+}
+
+.speech-bubble img {
+    width: min(190px, 16vw);
+    position: absolute;
+    right: 24%;
+    top: 70px;
+}
+
+.bot-intro h1 {
+    color: black;
+    position: absolute;
+    right: 26%;
+    top: 84px;
+    font-size: clamp(1rem, 2vw, 1.6rem);
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Laptop / tablet landscape */
+@media (max-width: 1100px) {
+    .planetary img {
+        left: auto;
+        right: 6%;
+        width: 160px;
+    }
+
+    .main-image img {
+        right: 6%;
+        width: 220px;
+    }
+
+    .speech-bubble img {
+        right: 8%;
+        width: 130px;
+    }
+
+    .bot-intro h1 {
+        right: 10%;
+        font-size: 1.1rem;
+    }
+
+    .moon-img img,
+    .kgz img {
+        right: 5%;
+        top: auto;
+        bottom: 32px;
+    }
+
+    .moon-img img {
+        width: 180px;
+    }
+
+    .kgz img {
+        width: 60px;
+        right: 12%;
+        bottom: 48px;
+    }
+
+    .satelite img {
+        right: 3%;
+        width: 70px;
+    }
+
+    .intro-container h1 {
+        left: 24px;
+        top: 180px;
+        max-width: 48%;
+    }
+
+    .intro-container .cta-link {
+        margin-left: 24px;
+        margin-top: 260px;
+    }
+}
+
+/* Phones + small tablets */
+@media (max-width: 900px) {
+    body {
+        overflow-y: auto;
+    }
+
+    header {
+        justify-content: center;
+        padding: 12px;
+    }
+
+    .nav_links {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .home,
+    .details,
+    .log-in,
+    .cta-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+        min-height: 40px;
+    }
+
+    .scene {
+        display: none;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 24px 16px 40px;
+        text-align: center;
+        min-height: calc(100dvh - 72px);
+    }
+
+    .bot-intro {
+        order: 1;
+    }
+
+    .bot-intro h1 {
+        position: static;
+        color: white;
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+        right: auto;
+        top: auto;
+    }
+
+    .main-image {
+        order: 2;
+        width: 100%;
+    }
+
+    .main-image img {
+        position: static;
+        display: block;
+        width: min(260px, 72vw);
+        margin: 0 auto;
+        right: auto;
+        top: auto;
+    }
+
+    .intro-container {
+        order: 3;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .intro-container h1 {
+        position: static;
+        max-width: none;
+        top: auto;
+        left: auto;
+        padding: 0 8px;
+        font-size: clamp(2rem, 9vw, 2.75rem);
+    }
+
+    .intro-container .cta-link {
+        margin: 0;
+        width: min(100%, 320px);
+    }
+
+    .intro-container button {
+        width: 100%;
+        font-size: 1.15rem;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+    .nav_links {
+        gap: 6px;
+    }
+
+    .home,
+    .details,
+    .cta-btn {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .intro-container h1 {
+        font-size: 1.75rem;
+    }
+}
