@@ -7,7 +7,7 @@ const isLocalHost =
     location.hostname === '127.0.0.1';
 
 // After you deploy Flask (e.g. Render), paste that URL here:
-const PRODUCTION_API = 'https://ruslanzs8.github.io/DialogMate/';
+const PRODUCTION_API = 'https://dialogmate.onrender.com/roast';
 
 const backendUrl = isLocalHost
     ? 'http://127.0.0.1:5000/roast'
