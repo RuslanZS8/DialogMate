@@ -8,13 +8,19 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     margin: 0;
     background-color: rgb(7, 31, 49);
-    overflow-x: hidden;
-    min-height: 100vh;
-    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
     position: relative;
+    font-family: "Cal Sans", "Anton", sans-serif;
 }
 
 .star {
@@ -29,7 +35,7 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 16px clamp(12px, 3vw, 30px) 0;
+    padding: 20px clamp(16px, 3vw, 40px) 0;
     position: relative;
     z-index: 5;
 }
@@ -39,7 +45,7 @@ header {
 .log-in,
 .cta-btn {
     min-height: 44px;
-    padding: 8px 20px;
+    padding: 8px 22px;
     font-size: 16px;
     border-radius: 12px;
     border: 1px solid white;
@@ -65,61 +71,55 @@ header {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-}
-
-.nav_links li {
-    display: inline-block;
+    gap: 10px;
 }
 
 .nav_links li a {
-    transition: all 0.3s ease 0s;
-}
-
-.nav_links li a:hover {
-    color: rgb(0, 238, 255);
-    border-bottom: 2px solid rgb(0, 238, 255);
-}
-
-.scene {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    overflow: hidden;
+    text-decoration: none;
 }
 
 .hero {
     position: relative;
     z-index: 2;
-    min-height: calc(100vh - 80px);
-    min-height: calc(100dvh - 80px);
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.1fr);
+    align-items: center;
+    gap: clamp(12px, 3vw, 40px);
+    height: calc(100vh - 80px);
+    height: calc(100dvh - 80px);
+    max-height: calc(100vh - 80px);
+    max-height: calc(100dvh - 80px);
+    padding: 12px clamp(16px, 4vw, 56px) 20px;
+    overflow: hidden;
 }
 
-/* Desktop / large screens: keep the original space-scene look */
+.intro-container {
+    position: relative;
+    z-index: 3;
+}
+
 .intro-container h1 {
-    position: absolute;
-    top: 230px;
-    left: 40px;
+    margin: 0 0 28px;
     color: white;
-    font-size: clamp(1.8rem, 5vw, 3.1rem);
-    margin: 0;
-    line-height: 1.15;
+    font-family: "Anton", sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    line-height: 1.05;
+    font-weight: 400;
+    letter-spacing: 0.02em;
 }
 
 .intro-container .cta-link {
     display: inline-block;
-    margin-top: 320px;
-    margin-left: 40px;
+    text-decoration: none;
 }
 
 .intro-container button {
     background-color: rgb(30, 17, 103);
     color: white;
-    min-height: 52px;
-    padding: 16px 28px;
-    border-radius: 20px;
-    font-size: clamp(1rem, 2.5vw, 1.55rem);
+    min-height: 54px;
+    padding: 14px 28px;
+    border-radius: 18px;
+    font-size: clamp(1.05rem, 2vw, 1.45rem);
     border: 1px solid white;
     cursor: pointer;
     font-weight: bold;
@@ -134,133 +134,142 @@ header {
 }
 
 .intro-container img {
-    width: 20px;
+    width: 18px;
     vertical-align: middle;
+    margin-left: 6px;
 }
 
-.planetary img {
-    position: absolute;
-    left: 460px;
-    top: 90px;
-    width: min(260px, 22vw);
+.artwork {
+    position: relative;
+    width: 100%;
+    max-width: min(720px, 70vh);
+    aspect-ratio: 1 / 1.05;
+    height: min(86vh, 720px);
+    max-height: 100%;
+    margin: 0 auto;
+    justify-self: end;
 }
 
-.moon-img img {
-    width: min(400px, 32vw);
-    position: absolute;
-    right: 22%;
-    top: 480px;
+.artwork img {
+    display: block;
+    max-width: 100%;
 }
 
-.kgz img {
+.planetary {
     position: absolute;
-    right: 24%;
-    top: 480px;
-    width: min(100px, 8vw);
+    top: 0;
+    left: 8%;
+    width: 42%;
+    z-index: 1;
 }
 
-.satelite img {
+.satelite {
     position: absolute;
-    top: 120px;
-    right: 12%;
-    width: min(110px, 10vw);
+    top: 4%;
+    right: 0;
+    width: 18%;
+    z-index: 1;
 }
 
-.main-image img {
+.speech {
     position: absolute;
-    top: 221px;
-    right: 26%;
-    width: min(350px, 28vw);
+    top: 11%;
+    right: 11%;
+    width: 44%;
+    z-index: 4;
 }
 
-.speech-bubble img {
-    width: min(190px, 16vw);
-    position: absolute;
-    right: 24%;
-    top: 70px;
+.speech-bubble {
+    width: 100%;
 }
 
-.bot-intro h1 {
-    color: black;
+.bot-intro {
     position: absolute;
-    right: 26%;
-    top: 84px;
-    font-size: clamp(1rem, 2vw, 1.6rem);
-    font-weight: bold;
+    inset: 9% 12% 28% 12%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #111;
+    font-size: clamp(0.85rem, 1.7vw, 1.25rem);
+    font-weight: 700;
+    line-height: 1.25;
 }
 
-/* Laptop / tablet landscape */
-@media (max-width: 1100px) {
-    .planetary img {
-        left: auto;
-        right: 6%;
-        width: 160px;
+.character {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 78%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.astronaut {
+    position: relative;
+    width: 88%;
+    margin: 0 auto;
+    z-index: 3;
+}
+
+.moon {
+    position: absolute;
+    left: 42%;
+    bottom: -2%;
+    width: 78%;
+    z-index: 1;
+}
+
+.flag {
+    position: absolute;
+    left: 88%;
+    right: 1%;
+    bottom: 71%;
+    width: 28%;
+    z-index: 4;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+    .hero {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        gap: 8px;
+        padding: 8px 16px 16px;
+        align-content: center;
     }
 
-    .main-image img {
-        right: 6%;
-        width: 220px;
+    .intro-container {
+        order: 2;
     }
 
-    .speech-bubble img {
-        right: 8%;
-        width: 130px;
-    }
-
-    .bot-intro h1 {
-        right: 10%;
-        font-size: 1.1rem;
-    }
-
-    .moon-img img,
-    .kgz img {
-        right: 5%;
-        top: auto;
-        bottom: 32px;
-    }
-
-    .moon-img img {
-        width: 180px;
-    }
-
-    .kgz img {
-        width: 60px;
-        right: 12%;
-        bottom: 48px;
-    }
-
-    .satelite img {
-        right: 3%;
-        width: 70px;
+    .artwork {
+        order: 1;
+        max-width: min(520px, 58vh);
+        height: min(60vh, 520px);
+        justify-self: center;
     }
 
     .intro-container h1 {
-        left: 24px;
-        top: 180px;
-        max-width: 48%;
-    }
-
-    .intro-container .cta-link {
-        margin-left: 24px;
-        margin-top: 260px;
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 5vw, 3rem);
     }
 }
 
-/* Phones + small tablets */
-@media (max-width: 900px) {
-    body {
-        overflow-y: auto;
-    }
-
+/* Phones */
+@media (max-width: 700px) {
     header {
         justify-content: center;
-        padding: 12px;
+        padding: 10px 12px 0;
     }
 
     .nav_links {
         justify-content: center;
         width: 100%;
+        gap: 8px;
     }
 
     .home,
@@ -272,82 +281,46 @@ header {
         min-height: 40px;
     }
 
-    .scene {
-        display: none;
+    .hero {
+        height: calc(100dvh - 64px);
+        max-height: calc(100dvh - 64px);
+        padding: 4px 16px 12px;
+        gap: 6px;
+        overflow: hidden;
     }
 
-    .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        padding: 24px 16px 40px;
-        text-align: center;
-        min-height: calc(100dvh - 72px);
+    .artwork {
+        max-width: min(360px, 48vh);
+        height: min(50vh, 360px);
+    }
+
+    .planetary,
+    .satelite {
+        opacity: 0.85;
     }
 
     .bot-intro {
-        order: 1;
-    }
-
-    .bot-intro h1 {
-        position: static;
-        color: white;
-        font-size: clamp(1.25rem, 5vw, 1.75rem);
-        right: auto;
-        top: auto;
-    }
-
-    .main-image {
-        order: 2;
-        width: 100%;
-    }
-
-    .main-image img {
-        position: static;
-        display: block;
-        width: min(260px, 72vw);
-        margin: 0 auto;
-        right: auto;
-        top: auto;
-    }
-
-    .intro-container {
-        order: 3;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        font-size: clamp(0.7rem, 3vw, 0.95rem);
+        inset: 16% 10% 26% 10%;
     }
 
     .intro-container h1 {
-        position: static;
-        max-width: none;
-        top: auto;
-        left: auto;
-        padding: 0 8px;
-        font-size: clamp(2rem, 9vw, 2.75rem);
+        font-size: clamp(1.7rem, 8vw, 2.4rem);
+        margin-bottom: 12px;
     }
 
     .intro-container .cta-link {
-        margin: 0;
-        width: min(100%, 320px);
+        width: min(100%, 280px);
     }
 
     .intro-container button {
         width: 100%;
-        font-size: 1.15rem;
+        min-height: 46px;
+        font-size: 1rem;
     }
 }
 
-/* Very small phones */
 @media (max-width: 380px) {
-    .nav_links {
-        gap: 6px;
-    }
-
     .home,
     .details,
     .cta-btn {
