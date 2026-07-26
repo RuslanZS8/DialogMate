@@ -6,10 +6,6 @@
 
 html {
     -webkit-text-size-adjust: 100%;
-}
-
-html,
-body {
     height: 100%;
     overflow: hidden;
 }
@@ -17,14 +13,17 @@ body {
 body {
     margin: 0;
     background-color: rgb(7, 31, 49);
+    height: 100%;
     height: 100vh;
     height: 100dvh;
+    height: 100svh;
+    overflow: hidden;
     position: relative;
     font-family: "Cal Sans", "Anton", sans-serif;
 }
 
 .star {
-    position: absolute;
+    position: fixed;
     background-color: white;
     border-radius: 50%;
     pointer-events: none;
@@ -35,18 +34,19 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 20px clamp(16px, 3vw, 40px) 0;
+    padding: 16px clamp(16px, 3vw, 40px) 0;
     position: relative;
     z-index: 5;
+    height: 64px;
 }
 
 .home,
 .details,
 .log-in,
 .cta-btn {
-    min-height: 44px;
-    padding: 8px 22px;
-    font-size: 16px;
+    min-height: 40px;
+    padding: 8px 20px;
+    font-size: 15px;
     border-radius: 12px;
     border: 1px solid white;
     color: white;
@@ -81,28 +81,29 @@ header {
 .hero {
     position: relative;
     z-index: 2;
-    display: grid;
-    grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.1fr);
+    display: flex;
     align-items: center;
-    gap: clamp(12px, 3vw, 40px);
-    height: calc(100vh - 80px);
-    height: calc(100dvh - 80px);
-    max-height: calc(100vh - 80px);
-    max-height: calc(100dvh - 80px);
-    padding: 12px clamp(16px, 4vw, 56px) 20px;
+    justify-content: space-between;
+    gap: 24px;
+    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
+    height: calc(100svh - 64px);
+    padding: 8px clamp(16px, 4vw, 56px) 16px;
     overflow: hidden;
 }
 
 .intro-container {
     position: relative;
     z-index: 3;
+    flex: 0 1 42%;
+    max-width: 520px;
 }
 
 .intro-container h1 {
-    margin: 0 0 28px;
+    margin: 0 0 24px;
     color: white;
     font-family: "Anton", sans-serif;
-    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
     line-height: 1.05;
     font-weight: 400;
     letter-spacing: 0.02em;
@@ -116,10 +117,10 @@ header {
 .intro-container button {
     background-color: rgb(30, 17, 103);
     color: white;
-    min-height: 54px;
+    min-height: 52px;
     padding: 14px 28px;
     border-radius: 18px;
-    font-size: clamp(1.05rem, 2vw, 1.45rem);
+    font-size: clamp(1.05rem, 2vw, 1.4rem);
     border: 1px solid white;
     cursor: pointer;
     font-weight: bold;
@@ -139,53 +140,57 @@ header {
     margin-left: 6px;
 }
 
+/* Fixed-size stage so absolute children always have a real parent box */
 .artwork {
     position: relative;
-    width: 100%;
-    max-width: min(720px, 70vh);
-    aspect-ratio: 1 / 1.05;
-    height: min(86vh, 720px);
-    max-height: 100%;
-    margin: 0 auto;
-    justify-self: end;
+    flex: 0 0 auto;
+    width: min(640px, 54vw, 82vh);
+    height: min(640px, 54vw, 82vh);
+    overflow: hidden;
 }
 
 .artwork img {
+    position: absolute;
     display: block;
-    max-width: 100%;
+    max-width: none;
 }
 
 .planetary {
-    position: absolute;
-    top: 0;
-    left: 8%;
-    width: 42%;
+    top: 2%;
+    left: 6%;
+    width: 38%;
+    height: auto;
     z-index: 1;
 }
 
 .satelite {
-    position: absolute;
-    top: 4%;
-    right: 0;
-    width: 18%;
+    top: 3%;
+    right: 2%;
+    width: 16%;
+    height: auto;
     z-index: 1;
 }
 
 .speech {
     position: absolute;
-    top: 11%;
-    right: 11%;
-    width: 44%;
-    z-index: 4;
+    top: 4%;
+    right: 14%;
+    width: 36%;
+    height: 28%;
+    z-index: 5;
 }
 
 .speech-bubble {
-    width: 100%;
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
 }
 
 .bot-intro {
     position: absolute;
-    inset: 9% 12% 28% 12%;
+    inset: 14% 10% 30% 10%;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -193,69 +198,71 @@ header {
     justify-content: center;
     text-align: center;
     color: #111;
-    font-size: clamp(0.85rem, 1.7vw, 1.25rem);
+    font-size: clamp(0.75rem, 1.5vw, 1.15rem);
     font-weight: 700;
-    line-height: 1.25;
+    line-height: 1.2;
+    z-index: 6;
 }
 
 .character {
     position: absolute;
-    left: 50%;
+    left: 8%;
     bottom: 0;
-    width: 78%;
-    transform: translateX(-50%);
+    width: 84%;
+    height: 72%;
     z-index: 2;
 }
 
 .astronaut {
-    position: relative;
-    width: 88%;
-    margin: 0 auto;
+    left: 8%;
+    top: 0;
+    width: 70%;
+    height: auto;
     z-index: 3;
 }
 
 .moon {
-    position: absolute;
-    left: 42%;
-    bottom: -2%;
-    width: 78%;
+    left: 28%;
+    bottom: 0;
+    width: 70%;
+    height: auto;
     z-index: 1;
 }
 
 .flag {
-    position: absolute;
-    left: 88%;
-    right: 1%;
-    bottom: 71%;
-    width: 28%;
+    right: 4%;
+    bottom: 22%;
+    width: 16%;
+    height: auto;
     z-index: 4;
 }
 
-/* Tablet */
+/* Tablet / stacked */
 @media (max-width: 980px) {
     .hero {
-        grid-template-columns: 1fr;
-        justify-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        gap: 8px;
-        padding: 8px 16px 16px;
-        align-content: center;
+        gap: 10px;
+        padding: 8px 16px 12px;
     }
 
     .intro-container {
         order: 2;
+        flex: 0 0 auto;
+        max-width: 100%;
     }
 
     .artwork {
         order: 1;
-        max-width: min(520px, 58vh);
-        height: min(60vh, 520px);
-        justify-self: center;
+        width: min(420px, 70vw, 48vh);
+        height: min(420px, 70vw, 48vh);
     }
 
     .intro-container h1 {
         margin-bottom: 14px;
-        font-size: clamp(2rem, 5vw, 3rem);
+        font-size: clamp(2rem, 7vw, 2.8rem);
     }
 }
 
@@ -263,6 +270,8 @@ header {
 @media (max-width: 700px) {
     header {
         justify-content: center;
+        height: auto;
+        min-height: 56px;
         padding: 10px 12px 0;
     }
 
@@ -276,46 +285,38 @@ header {
     .details,
     .log-in,
     .cta-btn {
-        padding: 8px 12px;
+        padding: 7px 12px;
         font-size: 13px;
-        min-height: 40px;
+        min-height: 36px;
     }
 
     .hero {
-        height: calc(100dvh - 64px);
-        max-height: calc(100dvh - 64px);
-        padding: 4px 16px 12px;
-        gap: 6px;
-        overflow: hidden;
+        height: calc(100svh - 56px);
+        padding: 4px 12px 10px;
+        gap: 8px;
     }
 
     .artwork {
-        max-width: min(360px, 48vh);
-        height: min(50vh, 360px);
-    }
-
-    .planetary,
-    .satelite {
-        opacity: 0.85;
+        width: min(300px, 78vw, 42vh);
+        height: min(300px, 78vw, 42vh);
     }
 
     .bot-intro {
-        font-size: clamp(0.7rem, 3vw, 0.95rem);
-        inset: 16% 10% 26% 10%;
+        font-size: clamp(0.65rem, 2.8vw, 0.9rem);
     }
 
     .intro-container h1 {
-        font-size: clamp(1.7rem, 8vw, 2.4rem);
-        margin-bottom: 12px;
+        font-size: clamp(1.7rem, 8vw, 2.3rem);
+        margin-bottom: 10px;
     }
 
     .intro-container .cta-link {
-        width: min(100%, 280px);
+        width: min(100%, 260px);
     }
 
     .intro-container button {
         width: 100%;
-        min-height: 46px;
+        min-height: 44px;
         font-size: 1rem;
     }
 }
@@ -324,11 +325,16 @@ header {
     .home,
     .details,
     .cta-btn {
-        padding: 7px 10px;
+        padding: 6px 10px;
         font-size: 12px;
     }
 
     .intro-container h1 {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
+    }
+
+    .artwork {
+        width: min(250px, 80vw, 38vh);
+        height: min(250px, 80vw, 38vh);
     }
 }
