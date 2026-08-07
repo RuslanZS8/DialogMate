@@ -93,13 +93,13 @@ async function sendPrompt() {
                     try {
                         const errorData = await response.json();
                         errorText = errorData.error || errorText;
-                    } catch (_) {}
+                    } catch (_) { }
                     appendMessage(`<p class="error">Error: ${errorText}</p>`);
                     return;
                 }
 
                 const data = await response.json();
-                appendMessage(`<p><strong>Zalush❤️:</strong> ${data.bot_response}</p>`);
+                appendMessage(`<p><strong>Ümran:</strong> ${data.bot_response}</p>`);
                 return;
             } catch (error) {
                 lastError = error;
